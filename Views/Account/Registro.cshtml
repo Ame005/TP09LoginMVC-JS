@@ -1,0 +1,32 @@
+<link rel = "stylesheet" href ="/css/site.css">
+<div class = "container">
+    <h1>Registro</h1>
+    <h2>Username</h2>
+        <div class = "Formulario">
+            <input type="text" required="" autocomplete="off" name="username" placeholder = "Username">
+        </div>
+    <h2>Contraseña</h2>
+        <div class = "Formulario">
+            <input type="password" required="" autocomplete="off" name="contrasena">
+        </div>
+    <h2>Correo Electronico</h2>
+        <div class = "Formulario">
+            <input type="text" required="" autocomplete="off" name="email" placeholder = "Email">
+        </div>
+    <h2>Fecha de nacimiento</h2>
+        <div class = "Formulario">
+            <input type="date" id="nacimiento" placeholder="00-00-0000" min="01-01-0001" max= "9-10-2023">
+        </div> 
+    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                <option selected>Selección de Preguntas</option>
+                @for(int i=0;i<ViewBag.PreguntasEleccion.Length;i++){
+                    <option value="@i+1">@ViewBag.PreguntasEleccion[i]</option>
+                }
+    </select>
+    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                <option selected>Selección de Respuesta</option>
+                @for(int i=1;i<ViewBag.RespuestaEleccion.Length;i++){
+                    <option value="@i">@ViewBag.PreguntasEleccion[i]</option>
+                }
+            </select>
+</div>

@@ -1,0 +1,22 @@
+<link rel = "stylesheet" href ="/css/site.css">
+<div class = "container">
+    <h1>Login</h1>
+    <div class = "UYC">
+        <h2>Username</h2>
+        <div class = "Formulario">
+            <input type="text" required="" autocomplete="off" name="username" placeholder = "Ingrese su nombre de usuario">
+        </div>
+        <h2>Contraseña</h2>
+        <div class = "Formulario">
+            <input type="password" required="" autocomplete="off" name="contrasena" id="contrasena">
+        </div>
+        <input type="checkbox" onclick="showPassword()">Mostrar contraseña
+    </div>
+    <div class = "BotonLogin">
+        <h2><a href='@Url.Action("VerificarDatos","Home")'><button type="button" class="button">Login</button></a></h2>
+    </div>
+    <div class = "Opciones">
+        <h3>¿No tienes una cuenta? <a href='@Url.Action("Registro","Home")'>Registrarse</a></h3>
+        <h3>¿Olvidaste tu contraseña <a href='@Url.Action("OlvideMiContrasena","Home")'>Recuperar Contraseña</a></h3>
+    </div>
+</div>

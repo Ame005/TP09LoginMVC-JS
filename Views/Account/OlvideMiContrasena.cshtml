@@ -1,0 +1,16 @@
+<div class="form">
+    <form action='@Url.Action("CambiarContrasena")' autocomplete="off">
+        <div class=formCompletar><h2>Mail:<h2><input type="text" name="Mail" placeholder="Ingrese su mail"></div>
+        <!--Debería seleccionar la pregunta previa-->
+        <div class="form-floating">
+            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                <option selected>Selección de Preguntas</option>
+                @for(int i=0;i<ViewBag.PreguntasEleccion.Count;i++){
+                    <option value=@i>@ViewBag.PreguntasEleccion[i]</option>
+                }
+            </select>
+            <label for="floatingSelect">Works with selects</label>
+        </div>
+        <div class=formCompletar><h2>Respuesta:<h2><input type="text" name="Respuesta" placeholder="Ingrese su respuesta"></div>
+    </form>
+</div>
