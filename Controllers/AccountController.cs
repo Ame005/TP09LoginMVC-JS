@@ -17,7 +17,8 @@ public class AccountController : Controller
     //si el form esta mal que salte una alerta warning
     public IActionResult Registro()
     {
-        return View();
+        ViewBag.PreguntasEleccion=BD.ObtenerPreguntas();
+        return View("Registro");
     }
     public IActionResult GuardarDatos(User usuario)
     {

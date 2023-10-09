@@ -3,7 +3,7 @@ using Dapper;
 
 public class BD
 {
-    private static string _connectionString = @"Server = .";
+    private static string _connectionString = @"Server = .;DataBase=TpLogin;Trusted_Connection=True;";
     public static void AgregarUsuario(User usuario){
         using (SqlConnection db = new SqlConnection(_connectionString)){
             string sql ="INSERT INTO User(Username,Contrasena,Respuesta,Mail,FechaNacimiento,idPregunta) VALUES (@pUsername,@pContrasena,@pRespuesta,@pMail,@pFechaNacimiento,@pidPregunta)";
