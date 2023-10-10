@@ -1,28 +1,61 @@
-<link rel = "stylesheet" href ="/css/site.css">
-<form action='@Url.Action("GuardarDatos")' autocomplete="off">
+<form method="get" action='@Url.Action("GuardarDatos")' autocomplete="off">
     <div class = "container">
-        <h1>Registro</h1>
-        <h2>Username</h2>
-            <div class = "Formulario">
-                <input type="text" required="" name="username" placeholder = "Username">
+        <h2>Registro</h2>
+        <div class="row">
+                <div class="col-25">
+                    <label for="fname">Username:</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="username" name="username" placeholder="Su username..">
+                </div>
             </div>
-        <h2>Contraseña</h2>
-            <div class = "Formulario">
-                <input type="password" required="" name="contrasena">
+        <div class="row">
+                <div class="col-25">
+                    <label for="fname">Contraseña:</label>
+                </div>
+                <div class="col-75">
+                    <input type="password" id="password" name="password" onkeyup="validatePassword(password)" placeholder="Su contraseña..">
+                </div>
             </div>
-        <h2>Correo Electronico</h2>
-            <div class = "Formulario">
-                <input type="text" required="" name="email" placeholder = "Email">
+        <div class="row">
+                <div class="col-25">
+                    <label for="fname">Correo Electronico:</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="mail" name="mail" placeholder="Su mail..">
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-25">
+                    <label for="fname">Nacimiento:</label>
+                </div>
+                <div class="col-75">
+                    <input type="date" id="nacimiento" placeholder="00-00-0000" min="01-01-0001" max= "9-10-2023">
+                </div>
             </div>
-        <h2>Fecha de nacimiento</h2>
-            <div class = "Formulario">
-                <input type="date" id="nacimiento" placeholder="00-00-0000" min="01-01-0001" max= "9-10-2023">
-            </div> 
-        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-            <option selected>Selección de Preguntas</option>
-            @for(int i=0;i<ViewBag.PreguntasEleccion.Count;i++){
-                <option value="@i+1">@ViewBag.PreguntasEleccion[i]</option>
-            }
-        </select>
+        <div class="row">
+                <div class="col-25">
+                    <label for="fname">Pregunta:</label>
+                </div>
+                <div class="col-75">
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                        <option selected>Selección de Preguntas</option>
+                        @for(int i=0;i<ViewBag.PreguntasEleccion.Count;i++){
+                            <option value="@i+1">@ViewBag.PreguntasEleccion[i].Contenido</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        <div class="row">
+                <div class="col-25">
+                    <label for="fname">Respuesta:</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="respuesta" name="respuesta" placeholder="Su respuesta..">
+                </div>
+        </div>
+        <div class = "BotonLogin">
+            <h3><a href='@Url.Action("GuardarDatos","Account")'><button type="button">Registrarse</button></a></h3>
+        </div>
     </div>
 </form>

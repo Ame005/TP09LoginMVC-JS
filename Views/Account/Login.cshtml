@@ -1,22 +1,22 @@
 <link rel = "stylesheet" href ="/css/site.css">
 <div class = "container">
-    <form action='@Url.Action("VerificarDatos")' autocomplete="off">
+    <form method="get" action='@Url.Action("VerificarDatos")' autocomplete="off">
         <h1>Login</h1>
         <div class = "UYC">
-            <h2>Username</h2>
+            <h3>Username</h3>
             <div class = "Formulario">
-                <input type="text" required="" autocomplete="off" name="username" placeholder = "Ingrese su nombre de usuario">
+                <input type="text" required="" name="username" placeholder = "Ingrese su nombre de usuario">
             </div>
-            <h2>Contraseña</h2>
+            <h3>Contraseña</h3>
             <div class = "Formulario">
-                <input type="password" required="" autocomplete="off" name="contrasena" id="contrasena">
+                <input type="password" required="" name="contrasena" id="contrasena">
             </div>
             <input type="checkbox" onclick="showPassword()">Mostrar contraseña
             <br>
             <a id ="olvidada" href='@Url.Action("OlvideMiContrasena")'>¿Olvidaste tu contraseña?</a>
         </div>
-            <div class = "BotonLogin">
-            <h2><a href='@Url.Action("VerificarDatos","Home")'><button type="button">Login</button></a></h2>
+        <div class = "BotonLogin">
+            <h3><a href='@Url.Action("VerificarDatos","Account")'><button type="button">Login</button></a></h3>
         </div>
     </form>
         <div class = "Opciones">

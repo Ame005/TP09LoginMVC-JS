@@ -12,7 +12,7 @@ public class AccountController : Controller
     */
     public IActionResult Login()
     {
-        return View("Login");
+        return View();
     }
     //si el form esta mal que salte una alerta warning
     public IActionResult Registro()
