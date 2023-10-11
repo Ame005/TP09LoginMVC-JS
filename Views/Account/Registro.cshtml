@@ -1,3 +1,8 @@
+@{
+    int contadorG =1;
+    int contadorP = 1;
+}
+
 <form method="get" action='@Url.Action("GuardarDatos")' autocomplete="off">
     <div class = "container">
         <h2>Registro</h2>
@@ -22,15 +27,21 @@
                     <label for="fname">Correo Electronico:</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="mail" name="mail" placeholder="Su mail..">
+                    <input type="email" id="mail" name="mail" placeholder="Su mail..">
                 </div>
         </div>
         <div class="row">
                 <div class="col-25">
-                    <label for="fname">Nacimiento:</label>
+                    <label for="fname">Genero:</label>
                 </div>
                 <div class="col-75">
-                    <input type="date" id="nacimiento" placeholder="00-00-0000" min="01-01-0001" max= "9-10-2023">
+                    <select class="form-select" id ="genero" name="genero" aria-label="Floating label select example">
+                        <option selected>Selección de Genero</option>
+                        @for(int i=0;i<ViewBag.GenerosEleccion.Count;i++){
+                            <option value="@contadorG">@ViewBag.GenerosEleccion[i].Contenido</option>
+                            contadorG++;
+                        }
+                    </select>
                 </div>
             </div>
         <div class="row">
@@ -38,10 +49,11 @@
                     <label for="fname">Pregunta:</label>
                 </div>
                 <div class="col-75">
-                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <select class="form-select" id="idPregunta" name="idPregunta" aria-label="Floating label select example">
                         <option selected>Selección de Preguntas</option>
                         @for(int i=0;i<ViewBag.PreguntasEleccion.Count;i++){
-                            <option value="@i+1">@ViewBag.PreguntasEleccion[i].Contenido</option>
+                            <option value="@contadorP">@ViewBag.PreguntasEleccion[i].Contenido</option>
+                            contadorP++;
                         }
                     </select>
                 </div>
@@ -55,7 +67,7 @@
                 </div>
         </div>
         <div class = "BotonLogin">
-            <h3><a href='@Url.Action("GuardarDatos","Account")'><button type="button">Registrarse</button></a></h3>
+            <h3><a href='@Url.Action("GuardarDatos","Account")'><input type="submit" value="Registrarse"></input></a></h3>
         </div>
     </div>
 </form>

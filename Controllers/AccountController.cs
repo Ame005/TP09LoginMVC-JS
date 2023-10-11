@@ -17,12 +17,15 @@ public class AccountController : Controller
     //si el form esta mal que salte una alerta warning
     public IActionResult Registro()
     {
+        ViewBag.GenerosEleccion=BD.ObtenerGeneros();
         ViewBag.PreguntasEleccion=BD.ObtenerPreguntas();
         return View("Registro");
     }
-    public IActionResult GuardarDatos(User usuario)
+    public IActionResult GuardarDatos(string username, string password, string mail, int genero, int idPregunta, string respuesta)
     {
-        BD.AgregarUsuario(usuario);
+        Console.WriteLine(genero);
+        Console.WriteLine(idPregunta);
+        BD.AgregarUsuario(username,password,mail,genero,idPregunta,respuesta);
         return View("Login");
     }
     public IActionResult VerificarDatos(string username, string contrasena)

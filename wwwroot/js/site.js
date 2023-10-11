@@ -7,6 +7,7 @@ function validatePassword(password){
     if (passwordRegExp.test(password)){
         return true;
     }else {
+        /*Agregar clase de DOM*/
         return false;
     }
 }

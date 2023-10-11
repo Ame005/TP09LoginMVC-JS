@@ -5,18 +5,18 @@
         <div class = "UYC">
             <h3>Username</h3>
             <div class = "Formulario">
-                <input type="text" required="" name="username" placeholder = "Ingrese su nombre de usuario">
+                <input type="text" required="" name="username" placeholder = "Su usuario...">
             </div>
             <h3>Contraseña</h3>
             <div class = "Formulario">
-                <input type="password" required="" name="contrasena" id="contrasena">
+                <input type="password" required="" name="contrasena" id="contrasena" placeholder="Su contaseña">
             </div>
             <input type="checkbox" onclick="showPassword()">Mostrar contraseña
             <br>
             <a id ="olvidada" href='@Url.Action("OlvideMiContrasena")'>¿Olvidaste tu contraseña?</a>
         </div>
         <div class = "BotonLogin">
-            <h3><a href='@Url.Action("VerificarDatos","Account")'><button type="button">Login</button></a></h3>
+            <a href='@Url.Action("VerificarDatos","Account")'><input type="submit" value="Login"></input></a>
         </div>
     </form>
         <div class = "Opciones">
