@@ -1,4 +1,3 @@
-<link rel = "stylesheet" href ="/css/site.css">
 <div class = "container">
     <form method="get" action='@Url.Action("VerificarDatos")' autocomplete="off">
         <h1>Login</h1>
@@ -22,4 +21,13 @@
         <div class = "Opciones">
             <h3>¿No tienes una cuenta? <a href='@Url.Action("Registro","Account")'>Registrarse</a></h3>
     </div>
+    @if (ViewBag.MensajeError == true){
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <div>
+                <strong>Cuidado!</strong>Los datos son incorrectos
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    }
 </div>

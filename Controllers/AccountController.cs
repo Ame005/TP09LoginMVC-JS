@@ -32,14 +32,24 @@ public class AccountController : Controller
     {
         User datos = null;
         datos = BD.VerInfoUsuario(username);
-        if (datos.Username==username && datos.Contrasena==contrasena)
+        if (datos == null)
         {
-            return View("Bienvenida");
+            ViewBag.MensajeError = true;
+            return RedirectToAction("Login");
         }
         else
         {
-            ViewBag.MensajeError = "Datos incorrectos, vuelva a intentar";
-            return View("Login");
+            if (datos.Username==username && datos.Contrasena==contrasena)
+            {
+                ViewBag.MensajeError = false;
+                ViewBag.Usuario=datos;
+                return RedirectToAction("Bienvenida");
+            }
+            else
+            {
+                ViewBag.MensajeError = true;
+                return RedirectToAction("Login");
+            }
         }
     }
     public IActionResult OlvideMiContrasena()

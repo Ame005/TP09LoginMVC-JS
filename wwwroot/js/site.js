@@ -2,12 +2,19 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-function validatePassword(password){
+function validatePassword(){
+    let password = document.getElementById("password").value;
+    let resultado = document.getElementById("resultado");
     var passwordRegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
     if (passwordRegExp.test(password)){
+        resultado.innerHTML  = "Contraseña Correcta";
+        resultado.style.color = "red";
+        console.log("true");
         return true;
     }else {
         /*Agregar clase de DOM*/
+        resultado.innerHTML = "Contraseña inorrecta";
+        resultado.style.color = "green";
         return false;
     }
 }

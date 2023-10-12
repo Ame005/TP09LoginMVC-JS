@@ -28,8 +28,8 @@ public class BD
         bool correcto = false;
         int algo;
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "UPDATE [User] SET Contrasena = @nuevaContrasena WHERE Mail = @mail AND Respuesta = @respuesta";
-            algo = db.Execute(sql, new {Contrasena = nuevaContrasena, Mail = mail, Respuesta = respuesta});
+            string sql = "UPDATE [User] SET Contrasena = @pnuevaContrasena WHERE Mail = @pmail AND Respuesta = @prespuesta";
+            algo = db.Execute(sql, new {pnuevaContrasena = nuevaContrasena, pmail = mail, prespuesta = respuesta});
         }
         if (algo>0){
             correcto=true;
