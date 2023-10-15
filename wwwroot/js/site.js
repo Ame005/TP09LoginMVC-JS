@@ -8,13 +8,23 @@ function validatePassword(){
     var passwordRegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
     if (passwordRegExp.test(password)){
         resultado.innerHTML  = "Contraseña Correcta";
-        resultado.style.color = "red";
+        resultado.style.display = "flex";
+        resultado.style.justifyContent = "center";
+        resultado.style.padding = "5px 10px";
+        resultado.style.border = "2px solid green";
+        resultado.style.backgroundColor = "#c6faa7";
+        resultado.style.color = "green";
         console.log("true");
         return true;
     }else {
         /*Agregar clase de DOM*/
-        resultado.innerHTML = "Contraseña inorrecta";
-        resultado.style.color = "green";
+        resultado.innerHTML = "Contraseña Incorrecta";
+        resultado.style.display = "flex";
+        resultado.style.justifyContent = "center";
+        resultado.style.padding = "5px 10px";
+        resultado.style.border = "2px solid red";
+        resultado.style.color = "red";
+        resultado.style.backgroundColor = "#fcacb3";
         return false;
     }
 }

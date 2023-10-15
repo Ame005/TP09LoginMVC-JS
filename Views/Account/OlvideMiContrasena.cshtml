@@ -1,4 +1,10 @@
 
+@{
+    int contadorP= 1;
+}
+<div style="display: flex; justify-content: center; align-items: center;">
+    <h2>@ViewBag.CambioPosible</h2>
+</div>
 <form method="get" action='@Url.Action("CambiarContrasena")' autocomplete="off">
     <div class="container">
         <h2>Cambio de Contraseña</h2>
@@ -15,10 +21,11 @@
                 <label for="fname">Pregunta:</label>
             </div>
             <div class="col-75">
-                <select>
-                    <option selected>Seleccione</option>
+                <select class="form-select" id="idPregunta" name="idPregunta" aria-label="Floating label select example">
+                    <option selected>Seleccion de preguntas</option>
                     @for(int i=0;i<ViewBag.PreguntasEleccion.Count;i++){
-                        <option value=@i>@ViewBag.PreguntasEleccion[i].Contenido</option>
+                        <option value="@contadorP">@ViewBag.PreguntasEleccion[i].Contenido</option>
+                        contadorP++;
                     }
                 </select>
             </div>
@@ -31,8 +38,18 @@
                 <input type="text" id="fname" name="respuesta" placeholder="Su respuesta..">
             </div>
         </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="fname">Nueva contraseña:</label>
+            </div>
+            <div class="col-75">
+                <input type="password" id="password" name="password"  onkeyup="validatePassword()" placeholder="Su nueva contraseña..">
+                <p id="resultado"></p>
+            </div>
+        </div>
         <div class = "BotonLogin">
-            <h3><a href='@Url.Action("Login","Account")'><input type="submit" value="Cambiar contraseña"></input></a></h3>
+            <input type="submit" value="Cambiar contraseña"></input>
         </div>
     </div>
 </form>
+<button class="button" style="vertical-align:middle"><a href='@Url.Action("Login","Account")'><span>Volver al Login</span></a></button>

@@ -24,12 +24,12 @@ public class BD
         }
         return infoUsuario;
     }
-    public static bool UpdatearContrasena(string nuevaContrasena,string mail,string respuesta){
+    public static bool UpdatearContrasena(string mail,int idPregunta,string respuesta,string password){
         bool correcto = false;
         int algo;
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "UPDATE [User] SET Contrasena = @pnuevaContrasena WHERE Mail = @pmail AND Respuesta = @prespuesta";
-            algo = db.Execute(sql, new {pnuevaContrasena = nuevaContrasena, pmail = mail, prespuesta = respuesta});
+            string sql = "UPDATE [User] SET Contrasena = @pnuevaContrasena WHERE Mail = @pmail AND idPregunta = @pidPregunta AND Respuesta = @prespuesta";
+            algo = db.Execute(sql, new {pnuevaContrasena = nuevaContrasena, pmail = mail, pidPregunta = idPregunta, prespuesta = respuesta});
         }
         if (algo>0){
             correcto=true;

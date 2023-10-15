@@ -55,17 +55,18 @@ public class AccountController : Controller
     public IActionResult OlvideMiContrasena()
     {
         ViewBag.PreguntasEleccion=BD.ObtenerPreguntas();
+        ViewBag.CambioPosible="";
         return View();
     }
     //el form le manda el mail, la respuesta, y la nueva contraseña
-    public IActionResult CambiarContrasena(string mail, string respuesta, string nuevaContrasena)
+    public IActionResult CambiarContrasena(string mail, int idPregunta, string respuesta, string password)
     {
         //pedir un bool del BD y que si este mal te salte error general
         bool correcto=false;
-        correcto = BD.UpdatearContrasena(nuevaContrasena,mail,respuesta);
-        if (correcto){
+        correcto = BD.UpdatearContrasena(mail, idPregunta, respuesta, password);
+        if (correcto==true){
             ViewBag.CambioPosible = "El cambio de contraseña fue exitoso";
-            return View("Login");
+            return View("OlvideMiContraseña");
         }
         else{
             ViewBag.PreguntasEleccion = BD.ObtenerPreguntas();
